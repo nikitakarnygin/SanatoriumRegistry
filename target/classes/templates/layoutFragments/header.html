@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<div xmlns:th="http://www.thymeleaf.org"
+     xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+     th:fragment="header">
+  <nav class="navbar navbar-expand-lg" style="background-color: #6c757d; opacity: 0.9">
+    <div class="container-fluid">
+<!--      <a class="navbar-brand" href="/vacationers" style="color: whitesmoke">Главная страница</a>-->
+      <a href="/"> <img src="/img/logo.png" alt="" width="60" height="60">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+              aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-link">
+            <a sec:authorize="isAuthenticated() && (hasRole('REGISTRY'))"
+               class="nav-link active" style="color: aliceblue" aria-current="page" href="/vacationers">Отдыхающие</a>
+          </li>
+          <li class="nav-link">
+            <a sec:authorize="isAuthenticated() && (hasRole('REGISTRY'))"
+               class="nav-link active" style="color: aliceblue" aria-current="page" href="/appointments">Записи на услуги</a>
+          </li>
+          <li class="nav-link">
+            <a sec:authorize="isAuthenticated() && (hasRole('REGISTRY'))"
+               class="nav-link active" style="color: aliceblue" aria-current="page" href="/bookings">Бронирования</a>
+          </li>
+          <li sec:authorize="isAuthenticated() && (hasRole('ADMIN'))" class="nav-link">
+            <a class="nav-link active" style="color: aliceblue" aria-current="page" href="/users">Пользователи</a>
+          </li>
+          <li sec:authorize="isAuthenticated() && (hasRole('ADMIN'))" class="nav-link">
+            <a class="nav-link active" style="color: aliceblue" aria-current="page" href="/services">Услуги санатория</a>
+          </li>
+        </ul>
+        <form class="d-flex" sec:authorize="!isAuthenticated()">
+          <a href="/login" class="btn btn-outline-light btn-rounded" role="button">Войти</a>
+        </form>
+        <form class="d-flex" sec:authorize="isAuthenticated()">
+          <a href="/logout" class="btn btn-outline-light btn-rounded" role="button" aria-disabled="true">Выйти</a>
+        </form>
+      </div>
+    </div>
+  </nav>
+</div>

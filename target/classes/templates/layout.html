@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+  <meta charset="UTF-8">
+  <title>Санаторий "Источник". Регистратура</title>
+  <script src="/webjars/bootstrap/5.3.0/js/bootstrap.js"></script>
+  <script type="text/javascript" src="/js/form_validation.js"></script>
+  <link rel="stylesheet" media="screen" href="/css/library.css">
+  <link href="/img" type="image/jpeg">
+  <link href="/webjars/bootstrap/5.3.0/css/bootstrap.css" rel="stylesheet" media="screen"/>
+  <style>
+    body {
+      background: url("/img/index-back.png");
+      text-align: center;
+      color: rgba(0, 0, 0, 0.99);
+    }
+  </style>
+</head>
+<body>
+<div th:replace="~{layoutFragments/header :: header}"></div>
+<main class="content-wrapper">
+  <div class="container">
+    <div layout:fragment="content">
+    </div>
+  </div>
+<!--      <footer th:insert="~{layoutFragments/footer :: footer}" class="footer"></footer>-->
+</main>
+</body>
+</html>
